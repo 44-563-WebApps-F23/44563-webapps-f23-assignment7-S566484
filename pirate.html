@@ -19,7 +19,6 @@
         body {
             background-color: beige;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            
         }
 
         h1 {
@@ -39,15 +38,30 @@
             border-radius: 10px;
             background-color: violet;
         }
+        .lead {
+            font-weight: 500;
+        }
+
+        .button {
+            background-color: black;
+            border: solid white;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 
 <body>
     <h1>Find the treasure by Sowmya Reddy</h1>
-    <p class="lead"><b>Click on the locations to search for treasure, beware the traps</b></p>
+    <p class="lead"><b>Click on the locations to search for treasure, be aware  of the traps</b></p>
     <p id="locations" class="lead"><b>Number of locations checked is zero</b></p>
     <p id="penalty" class="lead"><b>Penalty is zero</b></p>
-    <p class="lead" style="background-color:violet;"><b>Click for help</b></p>
+    <button class="lead" style="background-color:violet;"><b>Click for help</b></button>
     <p id="help" class="lead" style="background-color:violet;"><b>Help report</b></p>
 
     <div class="container">
@@ -137,7 +151,7 @@
             </div>
         </div>
     </div>
-    <Script>
+    <script>
         let checkCount=0;
         let penalty=0;
         let lastCheck=0;
@@ -153,7 +167,7 @@
                 image= document.getElementById(id);
 
                 if(id==treasureLocation){
-                    image.src="treasure.jpg";
+                    image.src="Treasurecave.jpg";
                     gameOver=true;
                     penalty=penalty-3;
 
@@ -165,7 +179,7 @@
 
                 }
                 else{
-                    image.src="pirate.jpg";
+                    image.src="Pirate.jpg";
                 }
             }
             checkCount=checkCount+1;
@@ -196,7 +210,7 @@
         }
     
 
-    </Script>
+    </script>
 
 
 </body>
