@@ -61,7 +61,7 @@
     <p class="lead"><b>Click on the locations to search for treasure, be aware  of the traps</b></p>
     <p id="locations" class="lead"><b>Number of locations checked is zero</b></p>
     <p id="penalty" class="lead"><b>Penalty is zero</b></p>
-    <button class="lead" style="background-color:violet;"><b>Click for help</b></button>
+    <button class="lead" onclick="help()" style="background-color:violet;"><b>Click for help</b></button>
     <p id="help" class="lead" style="background-color:violet;"><b>Help report</b></p>
 
     <div class="container">
@@ -167,7 +167,7 @@
                 image= document.getElementById(id);
 
                 if(id==treasureLocation){
-                    image.src="Treasurecave.jpg";
+                    image.src="treasure.jpg";
                     gameOver=true;
                     penalty=penalty-3;
 
