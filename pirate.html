@@ -152,67 +152,73 @@
         </div>
     </div>
     <script>
-        let checkCount=0;
-        let penalty=0;
-        let lastCheck=0;
-        let treasureLocation=5;
-        let trapLocation =18;
-        let gameOver=false;
-        let ids=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+    let checkCount = 0;
+        let penalty = 0;
+        let lastCheck = 0;
+        let treasureLocation = 5;
+        let trapLocation = 18;
+        let gameOver = false;
+        const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
-        function check(position){
-            if(gameOver) return;
-            else{
-                id=ids[position];
-                image= document.getElementById(id);
+        function randomGame(){
+            let penalty=0;
+            checkCount=0;
+            treasureLocation=Math.floor(Math.random()*25);
+            trapLocation=Math.floor(Math.random()*25);
+        }
 
-                if(id==treasureLocation){
-                    image.src="treasure.jpg";
+        function check(position) {
+            if (gameOver) {
+                return;
+            }
+            else {
+                posit = ids[position];
+                imageElement = document.getElementById(posit);
+                if (posit == treasureLocation) {
+                    imageElement.src = 'treasure.jpg';
                     gameOver=true;
                     penalty=penalty-3;
 
                 }
-                else if(id==trapLocation){
-                    image.src="trap.jpg";
+                else if (posit == trapLocation) {
+                    imageElement.src = 'trap.jpg';
                     gameOver=true;
                     penalty=penalty+4;
-
                 }
-                else{
-                    image.src="Pirate.jpg";
+                else {
+                    imageElement.src = 'Pirate.jpg';
                 }
             }
+
             checkCount=checkCount+1;
             penalty=penalty+1;
             document.getElementById("locations").innerHTML='Locations: ' +checkCount;
-            document.getElementById("penalty").innerHTML='penalty: ' +penalty;
+            document.getElementById("penalty").innerHTML='penalties: ' +penalty;
             lastCheck=position;
+
         }
         function help(){
-            let lastRow=Math.floor(lastCheck/5);
-            let lastCol=lastCheck%5;
-            let tressureRow=Math.floor((treasureLocation-1)/5);
-            let tressureCol=(treasureLocation-1)%5;
-            
-            let far=Math.abs(lastRow-tressureRow)+Math.abs(tressureCol-lastCol);
+            let treasureRow=Math.floor(lastCheck/5);
+            let treasureCol=lastCheck%5;
+            let lastRow=Math.floor((treasureLocation-1)/5);
+            let lastCol=((treasureLocation-1)%5);
+            let away=Math.abs(lastRow-treasureRow)+Math.abs(treasureCol-lastCol);
+            if(away>2){
+                document.getElementById("help").innerHTML="StepFaster";
 
-            if(far>2){
-                document.getElementById("help").innerHTML="Step Faster";
             }
-            else if(far==2){
+            else if(away==2)
+            {
                 document.getElementById("help").innerHTML="Close Matie";
+
             }
             else{
                 document.getElementById("help").innerHTML="Can Smell It";
             }
-            penalty=penalty+2;
+            penelty=penalty+2;
             document.getElementById("penalty").innerHTML='Penalties:'+penalty;
+
         }
-    
-
     </script>
-
-
-</body>
-
-</html>
+    </body>
+    </html>
